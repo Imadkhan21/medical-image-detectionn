@@ -1,0 +1,39 @@
+body {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+}
+
+#video-background {
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1:hover {
+  color: #ffffff;
+  background-color: #343a40;
+}
+
+p::after {
+  content: "|";
+  animation: typing 0.7s infinite alternate;
+}
+
+@keyframes typing {
+  from {
+      content: "";
+  }
+  to {
+      content: "|";
+  }
+}
+
+.btn-success {
+  background-color: #28a745;
+  border-color: #28a745;
+}
+
+.btn-success:hover {
+  background-color: #218838;
+  border-color: #1e7e34;
+}

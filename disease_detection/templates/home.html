@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<style>
+  body {
+    background: linear-gradient(135deg, #1f1c2c, #928dab);
+    background-size: 200% 200%;
+    animation: backgroundShift 15s ease infinite;
+  }
+
+  @keyframes backgroundShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+
+  .glass-container {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    color: white;
+    max-width: 1300px; 
+    max-height:max-content;
+    margin: auto;
+  }
+
+  #typing-text {
+    font-size: 1.2rem;
+    color: #d1d1d1;
+  }
+
+  .btn-success {
+    background-color: #28a745;
+    border: none;
+    font-weight: bold;
+  }
+
+  .btn-success:hover {
+    background-color: #218838;
+  }
+
+  video {
+    border-radius: 20px;
+  }
+</style>
+
+<div class="glass-container text-center mt-5">
+  <h1 class="display-5 fw-bold text-info mb-3">Welcome to Kidney Disease Classification</h1>
+  <p class="lead mb-4" id="typing-text"></p>
+
+  <video autoplay muted loop id="video-background" class="w-100 shadow mb-4">
+    <source src="{% static 'videos/3130284-uhd_3840_2160_30fps.mp4' %}" type="video/mp4">
+  </video>
+
+  <a href="{% url 'kidney_disease_detect' %}" class="btn btn-lg btn-success shadow">Start Detection</a>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  const paragraphText = "Empower renal health assessments with machine learning. Our platform analyzes medical images to deliver accurate diagnostics.";
+  let paragraphIndex = 0;
+
+  function typeWriter() {
+    if (paragraphIndex < paragraphText.length) {
+      document.getElementById("typing-text").innerHTML += paragraphText.charAt(paragraphIndex);
+      paragraphIndex++;
+      setTimeout(typeWriter, 25);
+    }
+  }
+
+  window.onload = typeWriter;
+</script>
+{% endblock %}

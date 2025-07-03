@@ -1,0 +1,9 @@
+.card {
+  background-color: #2b2b2b !important;
+  border: none;
+}
+
+.btn-outline-light:hover {
+  background-color: #712bb3;
+  color: white;
+}
