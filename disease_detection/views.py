@@ -13,6 +13,9 @@ from django.http import JsonResponse
 # Load the kidney disease model
 kidney_model = load_model(os.path.join(settings.BASE_DIR, 'disease_detection/models/final_model.h5'))
 
+print("✅ Model loaded successfully from:", kidney_model)
+
+
 # Preprocess the image
 def process(image_obj):
     img_data = image_obj.read()

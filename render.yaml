@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: kidney-disease-app
+    runtime: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn medical_classification.wsgi"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: medical_classification.settings
+      - key: PYTHON_VERSION
+        value: 3.10
+    staticPublishPath: staticfiles
