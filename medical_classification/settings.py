@@ -4,14 +4,12 @@ import os
 # Build paths inside the project
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = "django-insecure-o#ohdyv%*w!zh-4_^y=m#_q-gb(i8+r1=f*1=5nw6a1h6(ti49"
+# Use secret from environment if available, otherwise fallback to current key
+SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
 
-# Set to False for production
-DEBUG = False
+DEBUG = os.environ.get("DEBUG", "False") == "True"
 
-# Allow all hosts for now (Render will manage domains)
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "*").split(",")
 
 # Application definition
 INSTALLED_APPS = [
