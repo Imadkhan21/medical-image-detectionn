@@ -57,6 +57,6 @@ tzdata==2025.2
 urllib3==2.4.0
 Werkzeug==2.3.8
 wheel==0.41.2
-wrapt==1.15.0
+wrapt==1.14.1
 whitenoise==6.6.0
 gunicorn==21.2.0
